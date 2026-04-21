@@ -10,12 +10,11 @@ export default function Waitlist() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
         <SectionReveal className="mx-auto max-w-3xl rounded-3xl border border-slate-900/8 bg-white/82 p-8 text-center shadow-[0_34px_96px_-56px_rgba(15,23,42,0.45)] backdrop-blur-md sm:p-12">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Join the first wave of BRemind families
+            Start Your Breath Intelligence Journey
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-[1.05rem] leading-8 text-slate-700">
-            Be among the first to explore a new approach to focus, calm, and
-            child development — grounded in science and designed for the
-            realities of modern life.
+            Two people. Same skill. Different breath. Different result. Now
+            imagine if one of them trains their breath daily.
           </p>
 
           <form className="mx-auto mt-9 flex max-w-xl flex-col gap-3 sm:flex-row sm:items-center">
@@ -28,7 +27,7 @@ export default function Waitlist() {
               type="submit"
               className="inline-flex h-12 items-center justify-center rounded-full bg-slate-950 px-6 text-sm font-medium text-white shadow-[0_16px_42px_-20px_rgba(2,6,23,0.56)] transition hover:-translate-y-0.5 hover:bg-slate-900"
             >
-              Request Early Access
+              Join Early Access
             </button>
           </form>
         </SectionReveal>

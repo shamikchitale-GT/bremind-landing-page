@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionReveal from "@/components/SectionReveal";
 
 const timeline = [
@@ -25,6 +26,8 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+
+        {/* HEADER */}
         <SectionReveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
             Built for just a few mindful minutes a day
@@ -35,6 +38,20 @@ export default function HowItWorks() {
           </p>
         </SectionReveal>
 
+        {/* IMAGE (FIXED SIZE) */}
+        <SectionReveal className="mx-auto mt-12 max-w-3xl">
+          <div className="overflow-hidden rounded-[1.5rem] border border-slate-900/8 bg-white/80 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.42)] backdrop-blur-md">
+            <Image
+              src="/images/bq-process.jpg"
+              alt="BRemind process visual"
+              width={1200}
+              height={700}
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        </SectionReveal>
+
+        {/* CARDS */}
         <div className="mt-12 grid gap-4 md:grid-cols-2">
           {timeline.map((step, idx) => (
             <SectionReveal
@@ -54,6 +71,7 @@ export default function HowItWorks() {
             </SectionReveal>
           ))}
         </div>
+
       </div>
     </section>
   );

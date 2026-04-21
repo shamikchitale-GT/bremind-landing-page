@@ -2,19 +2,19 @@ import SectionReveal from "@/components/SectionReveal";
 
 const scienceCards = [
   {
-    title: "Nervous System Regulation",
+    title: "Ancient Intelligence",
     description:
-      "Breath patterns influence stress response, calmness, and emotional stability",
+      "Ancient systems like Swara Yoga understood the connection between breath and the brain",
   },
   {
-    title: "Focus and Attention Support",
+    title: "Modern Neuroscience",
     description:
-      "A regulated state improves cognitive readiness and sustained attention",
+      "Scientific research confirms that breath directly affects cognition, focus, and emotional regulation",
   },
   {
-    title: "Calm Through Structure",
+    title: "Real-Time Application",
     description:
-      "Guided routines help children access calm intentionally, not by chance",
+      "BRemind transforms this knowledge into a real-time system that helps you understand and optimize your internal state",
   },
 ];
 
@@ -28,18 +28,17 @@ export default function Science() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12">
         <SectionReveal className="max-w-xl">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Breath is the bridge between body and mind
+            Where ancient knowledge meets modern science
           </h2>
           <p className="mt-6 text-pretty text-[1.05rem] leading-8 text-slate-700">
-            Breathing patterns directly influence the nervous system, shaping
-            how a child feels, reacts, and focuses. When the breath is fast and
-            irregular, the mind becomes restless. When the breath is steady, the
-            mind becomes clearer and more stable.
+            Breath has always been the bridge between body and mind. Ancient
+            systems understood how breath influences thought, emotion, and
+            performance long before modern science could explain it.
           </p>
           <p className="mt-4 text-pretty text-[1.05rem] leading-8 text-slate-700">
-            BRemind transforms this connection into guided daily practices that
-            help children regulate their internal state before they are asked to
-            focus, learn, or perform.
+            Today, neuroscience confirms that breath directly impacts cognition,
+            emotional regulation, and decision-making. BRemind brings these
+            insights together into a real-time performance system.
           </p>
         </SectionReveal>
 

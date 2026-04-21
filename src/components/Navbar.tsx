@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Navbar() {
   const links = [
     { label: "Science", href: "#science" },
@@ -10,8 +12,20 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-900/6 bg-[#FBFBFA]/88 backdrop-blur-2xl">
       <nav className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-12">
-        <a href="#" className="text-[1.05rem] font-semibold tracking-tight text-slate-950">
-          BRemind
+
+        {/* LOGO + TEXT */}
+        <a href="#" className="flex items-center gap-3">
+          <Image
+            src="/images/bremind-logo.jpg"
+            alt="BRemind logo"
+            width={40}
+            height={40}
+            className="h-9 w-9 object-contain"
+            priority
+          />
+          <span className="text-[1.05rem] font-semibold tracking-tight text-slate-950">
+            BRemind
+          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -36,4 +50,3 @@ export default function Navbar() {
     </header>
   );
 }
-

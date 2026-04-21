@@ -2,28 +2,34 @@ import SectionReveal from "@/components/SectionReveal";
 
 const skills = [
   {
-    title: "Stronger Focus",
-    description: "Improved ability to sustain attention on tasks",
+    title: "Before a Meeting",
+    description:
+      "Align your state before important conversations to communicate clearly and confidently",
   },
   {
-    title: "Emotional Regulation",
-    description: "Better control over reactions, stress, and frustration",
+    title: "Before Studying",
+    description:
+      "Shift into a focused state to improve attention and learning efficiency",
   },
   {
-    title: "Calm Under Pressure",
-    description: "Ability to return to a balanced state more quickly",
+    title: "Before a Decision",
+    description:
+      "Understand your internal state before making critical choices",
   },
   {
-    title: "Self-Awareness",
-    description: "Understanding internal states and responses",
+    title: "Before a Difficult Conversation",
+    description:
+      "Regulate your emotions to respond with clarity instead of reacting impulsively",
   },
   {
-    title: "Cognitive Readiness",
-    description: "Improved ability to engage in learning environments",
+    title: "During Performance",
+    description:
+      "Stay calm, focused, and in control when it matters the most",
   },
   {
-    title: "Healthy Daily Rhythm",
-    description: "Building structured, repeatable habits for mental clarity",
+    title: "After Every Action",
+    description:
+      "Train your system to perform better next time through continuous improvement",
   },
 ];
 
@@ -37,7 +43,7 @@ export default function Skills() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
         <SectionReveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Skills children build with consistent practice
+            Right State → Right Action → Better Outcome
           </h2>
         </SectionReveal>
 

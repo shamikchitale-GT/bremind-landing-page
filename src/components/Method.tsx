@@ -2,21 +2,24 @@ import SectionReveal from "@/components/SectionReveal";
 
 const steps = [
   {
-    title: "Regulate",
-    description: "Calm the system and settle the body through guided breathing",
-  },
-  {
-    title: "Focus",
-    description: "Train attention through simple, structured awareness practices",
-  },
-  {
-    title: "Strengthen",
-    description: "Build emotional steadiness and cognitive readiness over time",
-  },
-  {
-    title: "Grow",
+    title: "Understand",
     description:
-      "Develop consistent habits that support learning, calm, and clarity",
+      "Know your internal state through your Breath Quotient in real time",
+  },
+  {
+    title: "Train",
+    description:
+      "Follow personalized, state-specific practices designed to improve your performance",
+  },
+  {
+    title: "Optimize",
+    description:
+      "Improve your thinking, emotional control, and decision-making through daily training",
+  },
+  {
+    title: "Upgrade",
+    description:
+      "Build long-term performance habits that elevate how you think, act, and perform",
   },
 ];
 
@@ -26,11 +29,12 @@ export default function Method() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
         <SectionReveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            A simple structure designed for real growth
+            Train Your Breath. Upgrade Your Mind.
           </h2>
           <p className="mt-5 text-[1.05rem] leading-8 text-slate-700">
-            BRemind is built on a structured progression that helps children
-            regulate first, focus better, and build long-term mental resilience.
+            Knowing your state is step one. Improving it is everything.
+            BRemind goes beyond awareness by generating personalized daily
+            practices based on your Breath Quotient to help you perform better.
           </p>
         </SectionReveal>
 

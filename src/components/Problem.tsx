@@ -2,19 +2,19 @@ import SectionReveal from "@/components/SectionReveal";
 
 const problems = [
   {
-    title: "Fragmented Attention",
+    title: "We track everything",
     description:
-      "Constant stimulation makes sustained focus increasingly difficult",
+      "Steps. Calories. Sleep. Heart rate.",
   },
   {
-    title: "Emotional Overload",
+    title: "But we ignore what matters most",
     description:
-      "Children struggle to regulate stress, frustration, and restlessness",
+      "The one system that controls how we think, feel, and perform — our breath.",
   },
   {
-    title: "Lack of Daily Tools",
+    title: "We act without checking our state",
     description:
-      "Families need simple, structured ways to build calm and clarity",
+      "You check your phone battery and the time before a meeting, but not your internal state before making decisions.",
   },
 ];
 
@@ -24,19 +24,16 @@ export default function Problem() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
         <SectionReveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Attention is under pressure in a constantly overstimulated world
+            We track everything. But we ignore the one system that controls how we think, feel, and perform.
           </h2>
           <p className="mt-6 text-pretty text-[1.05rem] leading-8 text-slate-700">
-            Today&apos;s children are growing up in environments filled with
-            constant stimulation, fragmented attention, and emotional overload.
-            Focus feels harder to sustain, calm is harder to access, and
-            traditional solutions often rely on distraction rather than
-            regulation.
+            Steps. Calories. Sleep. Heart rate. But we ignore the one system
+            that controls how we think, feel, and perform — our breath.
           </p>
           <p className="mt-4 text-pretty text-[1.05rem] leading-8 text-slate-700">
-            Parents are not looking for more screen time. They are looking for
-            tools that help children build real control over their attention,
-            energy, and emotional state.
+            You check your phone battery before leaving. You check the time
+            before a meeting. But you don&apos;t check your internal state before
+            making decisions.
           </p>
         </SectionReveal>
 
@@ -58,4 +55,3 @@ export default function Problem() {
     </section>
   );
 }
-
