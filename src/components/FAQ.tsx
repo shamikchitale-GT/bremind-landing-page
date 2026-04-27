@@ -32,56 +32,70 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="px-6 py-24 md:px-[60px] md:py-[120px]">
-      <div className="mx-auto max-w-[800px]">
+    <section
+      id="faq"
+      className="relative px-6 py-24 md:px-[60px] md:py-[120px]"
+    >
+      <div className="pointer-events-none absolute left-0 top-20 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,126,63,0.12),transparent_70%)] blur-3xl" />
+
+      <div className="mx-auto max-w-[850px]">
         <SectionReveal>
           <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">
             <span className="block h-px w-6 bg-[var(--muted)]" />
             FAQ
           </div>
 
-          <p className="mb-12 font-['Playfair_Display'] text-[clamp(22px,3vw,36px)] font-bold leading-[1.3] tracking-[-0.5px] text-[var(--text)]">
+          <p className="mb-12 font-['Playfair_Display'] text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.7px] text-[var(--text)]">
             Questions before you begin.
           </p>
         </SectionReveal>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
             return (
-              <SectionReveal key={faq.question} delay={idx * 0.05}>
-                <div className="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] transition">
-
-                  {/* QUESTION */}
+              <SectionReveal key={faq.question} delay={idx * 0.04}>
+                <div
+                  className={`overflow-hidden rounded-2xl border bg-[rgba(8,12,26,0.86)] shadow-[0_20px_60px_-45px_rgba(0,0,0,0.75)] transition duration-300 ${
+                    isOpen
+                      ? "border-[rgba(79,158,255,0.35)]"
+                      : "border-[var(--border)] hover:border-[rgba(79,158,255,0.22)]"
+                  }`}
+                >
                   <button
-                    onClick={() =>
-                      setOpenIndex(isOpen ? null : idx)
-                    }
-                    className="flex w-full items-center justify-between px-6 py-5 text-left"
+                    onClick={() => setOpenIndex(isOpen ? null : idx)}
+                    className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left md:px-7"
                   >
-                    <span className="text-sm font-medium text-[var(--text)]">
+                    <span className="text-[15px] font-semibold text-[var(--text)]">
                       {faq.question}
                     </span>
 
-                    <span className="text-[var(--muted)]">
-                      {isOpen ? "–" : "+"}
+                    <span
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-lg transition ${
+                        isOpen
+                          ? "border-[rgba(79,158,255,0.35)] bg-[var(--blue-dim)] text-[var(--blue)] rotate-45"
+                          : "border-[var(--border)] bg-white/[0.03] text-[var(--muted)]"
+                      }`}
+                    >
+                      +
                     </span>
                   </button>
 
-                  {/* ANSWER */}
                   <div
-                    className={`grid transition-all duration-300 ${
+                    className={`grid transition-all duration-300 ease-out ${
                       isOpen
                         ? "grid-rows-[1fr] opacity-100"
                         : "grid-rows-[0fr] opacity-0"
                     }`}
                   >
-                    <div className="overflow-hidden px-6 pb-5 text-sm leading-[1.6] text-[var(--muted)]">
-                      {faq.answer}
+                    <div className="overflow-hidden px-6 pb-6 md:px-7">
+                      <p className="max-w-[680px] text-sm leading-[1.7] text-[var(--muted)]">
+                        {faq.answer}
+                      </p>
                     </div>
                   </div>
                 </div>
