@@ -1,77 +1,79 @@
 import Image from "next/image";
 import SectionReveal from "@/components/SectionReveal";
 
-const timeline = [
+const steps = [
   {
-    title: "Check-in",
+    number: "01",
+    title: "Capture",
     description:
-      "A simple starting point to understand the child’s current state",
+      "Sensors capture real-time breath patterns and physiological signals",
   },
   {
-    title: "Guided Breath Session",
-    description: "Structured breathing practices to regulate the system",
-  },
-  {
-    title: "Focus Activity",
-    description: "Short exercises designed to train attention and awareness",
-  },
-  {
-    title: "Progress Tracking",
+    number: "02",
+    title: "Analyze",
     description:
-      "Clear insights that help parents understand patterns over time",
+      "AI identifies your internal state — focus, stress, fatigue, or flow",
+  },
+  {
+    number: "03",
+    title: "Guide",
+    description:
+      "Receive immediate, actionable guidance tailored to your state",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+    <section id="bq" className="px-6 py-24 md:px-[60px] md:py-[120px]">
+      <div className="mx-auto max-w-[1100px]">
 
-        {/* HEADER */}
-        <SectionReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Built for just a few mindful minutes a day
-          </h2>
-          <p className="mt-5 text-[1.05rem] leading-8 text-slate-700">
-            BRemind is designed to fit naturally into daily routines, without
-            overwhelming children or parents.
+        <SectionReveal>
+          <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">
+            <span className="block h-px w-6 bg-[var(--muted)]" />
+            How It Works
+          </div>
+
+          <p className="mb-16 max-w-[700px] font-['Playfair_Display'] text-[clamp(22px,3vw,38px)] font-bold leading-[1.3] tracking-[-0.5px] text-[var(--text)]">
+            A real-time system that reads your breath and guides your actions{" "}
+            <em className="not-italic text-[var(--blue)]">
+              before you act.
+            </em>
           </p>
         </SectionReveal>
 
-        {/* IMAGE (FIXED SIZE) */}
-        <SectionReveal className="mx-auto mt-12 max-w-3xl">
-          <div className="overflow-hidden rounded-[1.5rem] border border-slate-900/8 bg-white/80 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.42)] backdrop-blur-md">
+        {/* IMAGE */}
+        <SectionReveal>
+          <div className="relative mb-12 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.6)]">
             <Image
               src="/images/bq-process.jpg"
-              alt="BRemind process visual"
-              width={1200}
-              height={700}
-              className="h-auto w-full object-contain"
+              alt="BRemind process"
+              width={1400}
+              height={800}
+              className="w-full object-cover opacity-90"
             />
           </div>
         </SectionReveal>
 
-        {/* CARDS */}
-        <div className="mt-12 grid gap-4 md:grid-cols-2">
-          {timeline.map((step, idx) => (
+        {/* STEPS */}
+        <div className="grid gap-px overflow-hidden rounded-2xl bg-[var(--border)] md:grid-cols-3">
+          {steps.map((step, idx) => (
             <SectionReveal
               key={step.title}
               delay={idx * 0.08}
-              className="rounded-2xl border border-slate-900/8 bg-white/80 p-6 shadow-[0_24px_56px_-40px_rgba(15,23,42,0.48)] backdrop-blur-md"
+              className="bg-[var(--surface)] px-8 py-10 transition hover:bg-[var(--surface2)]"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                {String(idx + 1).padStart(2, "0")}
-              </p>
-              <p className="mt-2 text-base font-semibold text-slate-900">
+              <span className="mb-4 block text-[11px] font-semibold text-[var(--muted)]">
+                {step.number}
+              </span>
+              <h3 className="mb-2 text-[15px] font-semibold text-[var(--text)]">
                 {step.title}
-              </p>
-              <p className="mt-2 text-sm leading-7 text-slate-700">
+              </h3>
+              <p className="text-sm leading-[1.6] text-[var(--muted)]">
                 {step.description}
               </p>
             </SectionReveal>
           ))}
         </div>
-
       </div>
     </section>
   );

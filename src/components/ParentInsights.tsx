@@ -1,56 +1,74 @@
 import SectionReveal from "@/components/SectionReveal";
 
-const features = [
+const shifts = [
   {
-    title: "Short, Manageable Sessions",
-    description: "Designed to fit into daily routines",
+    from: "Awareness without action",
+    to: "Action guided by state",
   },
   {
-    title: "Clear Progress and Patterns",
-    description: "Understand how your child’s focus and state evolve",
+    from: "Random productivity",
+    to: "State-driven performance",
   },
   {
-    title: "Built for Real Life",
-    description: "Practical, repeatable, and easy to integrate",
+    from: "Reactive decisions",
+    to: "Conscious execution",
+  },
+  {
+    from: "External tracking",
+    to: "Internal intelligence",
   },
 ];
 
 export default function ParentInsights() {
   return (
-    <section id="parent-insights" className="py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
-        <SectionReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Clarity for parents. Confidence for children.
-          </h2>
-          <p className="mt-6 text-[1.05rem] leading-8 text-slate-700">
-            BRemind is designed for real family life — simple to follow,
-            structured without being rigid, and focused on long-term growth
-            rather than quick fixes.
-          </p>
-          <p className="mt-4 text-[1.05rem] leading-8 text-slate-700">
-            Parents gain visibility into their child&apos;s patterns, while
-            children build the internal tools they need to manage focus, energy,
-            and emotions more independently.
+    <section className="px-6 py-24 md:px-[60px] md:py-[120px]">
+      <div className="mx-auto max-w-[1100px]">
+
+        {/* HEADER */}
+        <SectionReveal>
+          <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">
+            <span className="block h-px w-6 bg-[var(--muted)]" />
+            The Shift
+          </div>
+
+          <p className="mb-16 max-w-[700px] font-['Playfair_Display'] text-[clamp(22px,3vw,38px)] font-bold leading-[1.3] tracking-[-0.5px] text-[var(--text)]">
+            From unconscious behavior{" "}
+            <em className="not-italic text-[var(--orange)]">
+              to intelligent action.
+            </em>
           </p>
         </SectionReveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {features.map((feature, idx) => (
+        {/* SHIFT GRID */}
+        <div className="grid gap-px overflow-hidden rounded-2xl bg-[var(--border)] md:grid-cols-2">
+          {shifts.map((item, idx) => (
             <SectionReveal
-              key={feature.title}
+              key={idx}
               delay={idx * 0.08}
-              className="rounded-2xl border border-slate-900/8 bg-white/80 p-6 shadow-[0_24px_58px_-42px_rgba(15,23,42,0.46)] backdrop-blur-md"
+              className="bg-[var(--surface)] px-8 py-10 transition hover:bg-[var(--surface2)]"
             >
-              <p className="text-base font-semibold text-slate-900">
-                {feature.title}
-              </p>
-              <p className="mt-2 text-sm leading-7 text-slate-700">
-                {feature.description}
-              </p>
+              <div className="flex flex-col gap-3 text-sm">
+
+                {/* FROM */}
+                <div className="flex items-center gap-2 text-[var(--muted)]">
+                  <span>–</span>
+                  {item.from}
+                </div>
+
+                {/* ARROW */}
+                <div className="text-lg text-[var(--blue)]">→</div>
+
+                {/* TO */}
+                <div className="flex items-center gap-2 font-medium text-[var(--text)]">
+                  <span>+</span>
+                  {item.to}
+                </div>
+
+              </div>
             </SectionReveal>
           ))}
         </div>
+
       </div>
     </section>
   );

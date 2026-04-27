@@ -10,21 +10,32 @@ import Science from "@/components/Science";
 import Skills from "@/components/Skills";
 import Waitlist from "@/components/Waitlist";
 
+// NEW IMPORTS
+import BQ from "@/components/BQ";
+import Differentiation from "@/components/Differentiation";
+
 export default function Home() {
   return (
-    <main className="bg-[#FBFBFA] text-slate-950">
+    <>
       <Navbar />
       <Hero />
+
+      {/* FLOW STARTS */}
       <Problem />
-      <Science />
+
+      {/* NEW SECTIONS (VERY IMPORTANT POSITION) */}
+      <BQ />
+      <Differentiation />
+
+      <ParentInsights />
+      <HowItWorks />
       <Method />
       <Skills />
-      <HowItWorks />
-      <ParentInsights />
+      <Science />
       <Waitlist />
       <FAQ />
       <Footer />
-    </main>
+    </>
   );
 }
 

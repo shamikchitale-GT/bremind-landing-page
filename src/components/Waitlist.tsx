@@ -2,37 +2,72 @@ import SectionReveal from "@/components/SectionReveal";
 
 export default function Waitlist() {
   return (
-    <section id="early-access" className="relative py-16 sm:py-20">
-      <div
-        aria-hidden
-        className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-200/35 blur-3xl"
-      />
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
-        <SectionReveal className="mx-auto max-w-3xl rounded-3xl border border-slate-900/8 bg-white/82 p-8 text-center shadow-[0_34px_96px_-56px_rgba(15,23,42,0.45)] backdrop-blur-md sm:p-12">
-          <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Start Your Breath Intelligence Journey
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-[1.05rem] leading-8 text-slate-700">
-            Two people. Same skill. Different breath. Different result. Now
-            imagine if one of them trains their breath daily.
-          </p>
+    <section
+      id="waitlist"
+      className="relative overflow-hidden bg-[var(--surface)] px-6 py-24 md:px-[60px] md:py-[120px]"
+    >
+      <div className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(79,158,255,0.05)_0%,transparent_70%)]" />
 
-          <form className="mx-auto mt-9 flex max-w-xl flex-col gap-3 sm:flex-row sm:items-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="h-12 flex-1 rounded-full border border-slate-900/12 bg-white px-5 text-sm text-slate-900 placeholder:text-slate-400 shadow-[0_10px_32px_-24px_rgba(15,23,42,0.38)] focus:outline-none focus:ring-2 focus:ring-cyan-300"
-            />
-            <button
-              type="submit"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-slate-950 px-6 text-sm font-medium text-white shadow-[0_16px_42px_-20px_rgba(2,6,23,0.56)] transition hover:-translate-y-0.5 hover:bg-slate-900"
-            >
-              Join Early Access
-            </button>
-          </form>
-        </SectionReveal>
-      </div>
+      <SectionReveal className="relative z-[1] mx-auto max-w-[780px] text-center">
+        <p className="mb-4 font-['Playfair_Display'] text-[clamp(22px,3.5vw,42px)] font-bold leading-[1.25] tracking-[-1px] text-[var(--text)]">
+          Two people. Same skill.
+          <br />
+          Different breath. Different result.
+        </p>
+
+        <p className="mb-14 text-base font-light text-[var(--muted)]">
+          Now imagine if one of them trains their breath daily.
+        </p>
+
+        <form className="rounded-3xl border border-[var(--border)] bg-[var(--surface2)] px-6 py-8 text-left md:px-11 md:py-10">
+          <div className="mb-4 grid gap-4 md:grid-cols-2">
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.06em] text-[var(--muted)]">
+                First name
+              </label>
+              <input
+                type="text"
+                className="w-full rounded-[10px] border border-[var(--border)] bg-[var(--bg)] px-4 py-3 text-sm text-[var(--text)] outline-none transition focus:border-[rgba(79,158,255,0.4)] focus:shadow-[0_0_0_3px_rgba(79,158,255,0.08)]"
+              />
+            </div>
+
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.06em] text-[var(--muted)]">
+                Email
+              </label>
+              <input
+                type="email"
+                className="w-full rounded-[10px] border border-[var(--border)] bg-[var(--bg)] px-4 py-3 text-sm text-[var(--text)] outline-none transition focus:border-[rgba(79,158,255,0.4)] focus:shadow-[0_0_0_3px_rgba(79,158,255,0.08)]"
+              />
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.06em] text-[var(--muted)]">
+              I am a
+            </label>
+            <select className="w-full rounded-[10px] border border-[var(--border)] bg-[var(--bg)] px-4 py-3 text-sm text-[var(--text)] outline-none transition focus:border-[rgba(79,158,255,0.4)] focus:shadow-[0_0_0_3px_rgba(79,158,255,0.08)]">
+              <option>Founder</option>
+              <option>Student</option>
+              <option>Professional</option>
+              <option>Athlete</option>
+              <option>Creator</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="relative mt-2 w-full overflow-hidden rounded-xl bg-gradient-to-br from-[var(--blue)] to-[#2d6fd4] px-4 py-4 text-base font-bold text-white transition hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(79,158,255,0.3)]"
+          >
+            Join the Waitlist
+          </button>
+
+          <p className="mt-3.5 text-center text-xs text-[var(--muted)]">
+            Operate with clarity. Perform with precision.
+          </p>
+        </form>
+      </SectionReveal>
     </section>
   );
 }
-

@@ -1,60 +1,93 @@
+"use client";
+
+import { useState } from "react";
 import SectionReveal from "@/components/SectionReveal";
 
 const faqs = [
   {
-    question: "Is BRemind a meditation app for kids?",
+    question: "What is Breath Quotient (BQ)?",
     answer:
-      "BRemind is not positioned as a traditional meditation app. It focuses on guided breath-based routines and structured focus practices designed to support regulation, attention, and calm in a practical way.",
+      "Breath Quotient is a real-time indicator of your internal state based on your breathing patterns. It helps you understand whether you are in focus, stress, fatigue, or clarity.",
   },
   {
-    question: "What age group is it designed for?",
+    question: "How is this different from meditation apps?",
     answer:
-      "BRemind is designed for growing children, with routines that are simple, guided, and easy to integrate into everyday family life.",
+      "Meditation apps focus on relaxation sessions. BRemind is a real-time performance system that helps you act based on your current internal state.",
   },
   {
-    question: "Is it science-backed?",
+    question: "Do I need special hardware?",
     answer:
-      "Yes. BRemind is grounded in modern understanding of breath, nervous system regulation, and attention, while drawing inspiration from established breath-centered practices.",
+      "BRemind is designed to integrate with sensors, but the core system focuses on translating breath signals into actionable guidance.",
   },
   {
-    question: "How long does a daily session take?",
+    question: "Who is this for?",
     answer:
-      "Sessions are intentionally short, designed to fit into daily routines without adding pressure.",
+      "Founders, students, professionals, athletes, and creators — anyone who wants to improve how they think, act, and perform.",
   },
   {
-    question: "Can parents track progress?",
+    question: "What is the long-term benefit?",
     answer:
-      "Yes. BRemind is designed to help parents understand patterns, support consistency, and guide their child’s development over time.",
+      "You train your system to consistently operate from better internal states, leading to better decisions, performance, and outcomes.",
   },
 ];
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
-    <section id="faq" className="py-16 sm:py-20">
-      <div className="mx-auto max-w-4xl px-5 sm:px-8">
-        <SectionReveal className="text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Frequently asked questions
-          </h2>
+    <section className="px-6 py-24 md:px-[60px] md:py-[120px]">
+      <div className="mx-auto max-w-[800px]">
+        <SectionReveal>
+          <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">
+            <span className="block h-px w-6 bg-[var(--muted)]" />
+            FAQ
+          </div>
+
+          <p className="mb-12 font-['Playfair_Display'] text-[clamp(22px,3vw,36px)] font-bold leading-[1.3] tracking-[-0.5px] text-[var(--text)]">
+            Questions before you begin.
+          </p>
         </SectionReveal>
 
-        <div className="mt-10 space-y-3.5">
-          {faqs.map((faq, idx) => (
-            <SectionReveal
-              key={faq.question}
-              delay={idx * 0.05}
-              className="rounded-2xl border border-slate-900/8 bg-white/80 px-5 py-4 shadow-[0_20px_48px_-36px_rgba(15,23,42,0.44)] backdrop-blur-md sm:px-6 sm:py-5"
-            >
-              <details className="group">
-                <summary className="cursor-pointer list-none text-left text-base font-medium text-slate-900 marker:content-none">
-                  {faq.question}
-                </summary>
-                <p className="mt-3 text-left text-sm leading-7 text-slate-700">
-                  {faq.answer}
-                </p>
-              </details>
-            </SectionReveal>
-          ))}
+        <div className="space-y-3">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+
+            return (
+              <SectionReveal key={faq.question} delay={idx * 0.05}>
+                <div className="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] transition">
+
+                  {/* QUESTION */}
+                  <button
+                    onClick={() =>
+                      setOpenIndex(isOpen ? null : idx)
+                    }
+                    className="flex w-full items-center justify-between px-6 py-5 text-left"
+                  >
+                    <span className="text-sm font-medium text-[var(--text)]">
+                      {faq.question}
+                    </span>
+
+                    <span className="text-[var(--muted)]">
+                      {isOpen ? "–" : "+"}
+                    </span>
+                  </button>
+
+                  {/* ANSWER */}
+                  <div
+                    className={`grid transition-all duration-300 ${
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden px-6 pb-5 text-sm leading-[1.6] text-[var(--muted)]">
+                      {faq.answer}
+                    </div>
+                  </div>
+                </div>
+              </SectionReveal>
+            );
+          })}
         </div>
       </div>
     </section>

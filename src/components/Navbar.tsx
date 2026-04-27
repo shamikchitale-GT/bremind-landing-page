@@ -1,4 +1,4 @@
-import Image from "next/image";
+"use client";
 
 export default function Navbar() {
   const links = [
@@ -6,43 +6,34 @@ export default function Navbar() {
     { label: "Method", href: "#method" },
     { label: "Benefits", href: "#benefits" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Early Access", href: "#early-access" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-900/6 bg-[#FBFBFA]/88 backdrop-blur-2xl">
-      <nav className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-12">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-[rgba(4,5,13,0.75)] border-b border-[var(--border)]">
+      <nav className="mx-auto flex h-[80px] max-w-[1200px] items-center justify-between px-6">
 
-        {/* LOGO + TEXT */}
-        <a href="#" className="flex items-center gap-3">
-          <Image
-            src="/images/bremind-logo.jpg"
-            alt="BRemind logo"
-            width={40}
-            height={40}
-            className="h-9 w-9 object-contain"
-            priority
-          />
-          <span className="text-[1.05rem] font-semibold tracking-tight text-slate-950">
-            BRemind
-          </span>
+        {/* LOGO (GRADIENT TEXT EXACT) */}
+        <a href="#" className="text-[1.2rem] font-semibold tracking-tight bg-gradient-to-r from-[#4f9eff] to-[#ff7e3f] bg-clip-text text-transparent">
+          BRemind
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        {/* LINKS */}
+        <div className="hidden items-center gap-10 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-700/95 transition hover:text-slate-950"
+              className="text-[0.9rem] text-[var(--muted)] transition hover:text-white"
             >
               {link.label}
             </a>
           ))}
         </div>
 
+        {/* CTA BUTTON */}
         <a
           href="#early-access"
-          className="inline-flex h-10 items-center justify-center rounded-full border border-cyan-200/60 bg-white/78 px-4 text-sm font-medium text-slate-900 shadow-[0_12px_30px_-20px_rgba(15,23,42,0.55)] transition hover:-translate-y-0.5 hover:bg-white"
+          className="rounded-full border border-[var(--border)] bg-[var(--surface2)] px-5 py-2 text-[0.85rem] text-white transition hover:border-[var(--blue)] hover:shadow-[0_0_20px_var(--blue-glow)]"
         >
           Join Waitlist
         </a>

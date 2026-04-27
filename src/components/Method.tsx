@@ -2,21 +2,25 @@ import SectionReveal from "@/components/SectionReveal";
 
 const steps = [
   {
+    number: "01",
     title: "Understand",
     description:
       "Know your internal state through your Breath Quotient in real time",
   },
   {
+    number: "02",
     title: "Train",
     description:
       "Follow personalized, state-specific practices designed to improve your performance",
   },
   {
+    number: "03",
     title: "Optimize",
     description:
       "Improve your thinking, emotional control, and decision-making through daily training",
   },
   {
+    number: "04",
     title: "Upgrade",
     description:
       "Build long-term performance habits that elevate how you think, act, and perform",
@@ -25,33 +29,41 @@ const steps = [
 
 export default function Method() {
   return (
-    <section id="method" className="py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
-        <SectionReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            Train Your Breath. Upgrade Your Mind.
-          </h2>
-          <p className="mt-5 text-[1.05rem] leading-8 text-slate-700">
-            Knowing your state is step one. Improving it is everything.
-            BRemind goes beyond awareness by generating personalized daily
-            practices based on your Breath Quotient to help you perform better.
+    <section
+      id="method"
+      className="bg-[var(--surface)] px-6 py-24 md:px-[60px] md:py-[120px]"
+    >
+      <div className="mx-auto max-w-[1100px]">
+        <SectionReveal>
+          <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">
+            <span className="block h-px w-6 bg-[var(--muted)]" />
+            The Method
+          </div>
+
+          <p className="mb-16 max-w-[700px] font-['Playfair_Display'] text-[clamp(22px,3vw,38px)] font-bold leading-[1.3] tracking-[-0.5px] text-[var(--text)]">
+            Train your breath.{" "}
+            <em className="not-italic text-[var(--orange)]">
+              Upgrade your mind.
+            </em>
           </p>
         </SectionReveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px overflow-hidden rounded-2xl bg-[var(--border)] md:grid-cols-4">
           {steps.map((step, idx) => (
             <SectionReveal
               key={step.title}
               delay={idx * 0.08}
-              className="rounded-2xl border border-slate-900/8 bg-white/78 p-6 shadow-[0_24px_56px_-38px_rgba(15,23,42,0.45)] backdrop-blur-md"
+              className="bg-[var(--surface)] px-8 py-10 transition hover:bg-[var(--surface2)]"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-700/80">
-                Step {idx + 1}
-              </p>
-              <h3 className="mt-3 text-xl font-semibold text-slate-950">
+              <span className="mb-4 block text-[11px] font-semibold text-[var(--muted)]">
+                {step.number}
+              </span>
+
+              <h3 className="mb-2 text-[15px] font-semibold text-[var(--text)]">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-slate-700">
+
+              <p className="text-sm leading-[1.6] text-[var(--muted)]">
                 {step.description}
               </p>
             </SectionReveal>

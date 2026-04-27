@@ -2,55 +2,101 @@ import SectionReveal from "@/components/SectionReveal";
 
 const problems = [
   {
-    title: "We track everything",
-    description:
-      "Steps. Calories. Sleep. Heart rate.",
+    icon: "📱",
+    title: "External tracking",
+    description: "Steps. Calories. Sleep. Heart rate.",
   },
   {
-    title: "But we ignore what matters most",
+    icon: "🫁",
+    title: "Internal system ignored",
     description:
       "The one system that controls how we think, feel, and perform — our breath.",
   },
   {
-    title: "We act without checking our state",
+    icon: "⚡",
+    title: "Decisions without state awareness",
     description:
-      "You check your phone battery and the time before a meeting, but not your internal state before making decisions.",
+      "We check batteries, calendars, and time — but not our internal state before acting.",
   },
 ];
 
 export default function Problem() {
   return (
-    <section id="problem" className="relative py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
-        <SectionReveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.45rem]">
-            We track everything. But we ignore the one system that controls how we think, feel, and perform.
-          </h2>
-          <p className="mt-6 text-pretty text-[1.05rem] leading-8 text-slate-700">
-            Steps. Calories. Sleep. Heart rate. But we ignore the one system
-            that controls how we think, feel, and perform — our breath.
-          </p>
-          <p className="mt-4 text-pretty text-[1.05rem] leading-8 text-slate-700">
-            You check your phone battery before leaving. You check the time
-            before a meeting. But you don&apos;t check your internal state before
-            making decisions.
+    <section id="problem" className="bg-[var(--surface)] px-6 py-24 md:px-[60px] md:py-[120px]">
+      <div className="mx-auto max-w-[1100px]">
+        <SectionReveal>
+          <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">
+            <span className="block h-px w-6 bg-[var(--muted)]" />
+            The Problem
+          </div>
+
+          <p className="mb-16 max-w-[700px] font-['Playfair_Display'] text-[clamp(22px,3vw,38px)] font-bold leading-[1.3] tracking-[-0.5px] text-[var(--text)]">
+            We track everything. But we ignore the one system that controls how
+            we <em className="not-italic text-[var(--orange)]"> think, feel, and perform.</em>
           </p>
         </SectionReveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <div className="grid gap-px overflow-hidden rounded-2xl bg-[var(--border)] md:grid-cols-3">
           {problems.map((item, idx) => (
             <SectionReveal
               key={item.title}
               delay={idx * 0.08}
-              className="rounded-2xl border border-slate-900/8 bg-white/78 p-6 shadow-[0_26px_62px_-42px_rgba(15,23,42,0.5)] backdrop-blur-md"
+              className={`bg-[var(--surface)] px-8 py-9 transition hover:bg-[var(--surface2)] ${
+                idx === 1
+                  ? "border-t-2 border-[var(--orange)] bg-[linear-gradient(180deg,rgba(255,126,63,0.06),var(--surface))]"
+                  : ""
+              }`}
             >
-              <p className="text-base font-semibold text-slate-900">{item.title}</p>
-              <p className="mt-2 text-sm leading-7 text-slate-700">
+              <div className="mb-4 text-[28px]">{item.icon}</div>
+              <h3
+                className={`mb-2.5 text-base font-semibold ${
+                  idx === 1 ? "text-[var(--orange)]" : "text-[var(--text)]"
+                }`}
+              >
+                {item.title}
+              </h3>
+              <p className="text-sm leading-[1.6] text-[var(--muted)]">
                 {item.description}
               </p>
             </SectionReveal>
           ))}
         </div>
+
+        <SectionReveal className="mt-[60px] grid overflow-hidden rounded-2xl bg-[var(--border)] md:grid-cols-2">
+          <div className="bg-white/[0.02] px-9 py-10">
+            <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--muted)]">
+              What we check
+            </span>
+            {["Phone battery before leaving", "Time before a meeting", "Calendar before a call"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 border-b border-[var(--border)] py-3 text-sm text-[var(--muted)] last:border-b-0"
+                >
+                  <span className="text-lg">✓</span>
+                  {item}
+                </div>
+              )
+            )}
+          </div>
+
+          <div className="bg-[linear-gradient(135deg,rgba(79,158,255,0.05),rgba(255,126,63,0.05))] px-9 py-10">
+            <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--blue)]">
+              What we don&apos;t check
+            </span>
+            {["Your internal state", "Your breath pattern", "Your readiness before decisions"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 border-b border-[var(--border)] py-3 text-sm text-[var(--text)] last:border-b-0"
+                >
+                  <span className="text-lg">→</span>
+                  {item}
+                </div>
+              )
+            )}
+          </div>
+        </SectionReveal>
       </div>
     </section>
   );
