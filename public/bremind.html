@@ -2850,7 +2850,7 @@ img{max-width:100%;height:auto;}
 
     <p class="wl-sub">Now imagine if one of them trains their breath daily. Join the waitlist to be first.</p>
 
-<div class="card">
+<div class="card" style="margin:0 auto;">
   <div class="card-accent"></div>
   <div class="card-inner">
     <div class="badge">Early Access</div>
@@ -3339,15 +3339,39 @@ function handleSubmit(){
   if(!role){document.getElementById('f-role').classList.add('error');valid=false;}
   if(!challenge){document.getElementById('challenge-grid').classList.add('error');valid=false;}
   if(!valid)return;
-  const formUrl="https://docs.google.com/forms/d/e/1FAIpQLSc556Ro4-x0RLhaTiq9F8ayZXt0MOiBwJNFQJ9l3yGlbyfAnw/formResponse";
-  const params=new URLSearchParams({
-    "entry.255412026":name,
-    "entry.1112031837":email,
-    "entry.139102300":role,
-    "entry.2098558216":challenge.querySelector('input').value,
-    "entry.744924287":document.getElementById('f-source').value||"",
+
+  // Build a hidden form and submit via hidden iframe (works reliably with Google Forms)
+  const iframe=document.createElement('iframe');
+  iframe.name='hidden_iframe';
+  iframe.style.display='none';
+  document.body.appendChild(iframe);
+
+  const form=document.createElement('form');
+  form.method='POST';
+  form.action='https://docs.google.com/forms/d/e/1FAIpQLSc556Ro4-x0RLhaTiq9F8ayZXt0MOiBwJNFQJ9l3yGlbyfAnw/formResponse';
+  form.target='hidden_iframe';
+  form.style.display='none';
+
+  const fields={
+    'entry.255412026':name,
+    'entry.1112031837':email,
+    'entry.139102300':role,
+    'entry.2098558216':challenge.querySelector('input').value,
+    'entry.744924287':document.getElementById('f-source').value||''
+  };
+
+  Object.entries(fields).forEach(([key,val])=>{
+    const input=document.createElement('input');
+    input.type='hidden';
+    input.name=key;
+    input.value=val;
+    form.appendChild(input);
   });
-  fetch(formUrl+"?"+params.toString(),{method:"POST",mode:"no-cors"});
+
+  document.body.appendChild(form);
+  form.submit();
+
+  // Show success immediately — don't wait for iframe response
   document.getElementById('form-fields').style.display='none';
   document.getElementById('form-success').style.display='block';
 }
