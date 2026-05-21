@@ -1778,6 +1778,56 @@ img{max-width:100%;height:auto;}
 
 .td{width:6px;height:6px;border-radius:50%;background:var(--muted);display:inline-block;animation:typingDot 1.2s ease-in-out infinite;}
 
+
+/* ── WAITLIST FORM CARD ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:28px;width:100%;max-width:620px;position:relative;z-index:1;overflow:hidden;box-shadow:0 60px 120px rgba(0,0,0,0.6),0 0 0 1px rgba(79,158,255,0.04);}
+.card-accent{height:3px;background:linear-gradient(90deg,var(--blue),var(--orange));}
+.card-inner{padding:44px 48px 48px;}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(79,158,255,0.3);background:rgba(79,158,255,0.08);border-radius:100px;padding:5px 14px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:22px;}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:blinkDot 2s ease-in-out infinite;}
+.card-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,40px);font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:12px;}
+.card-title .gradient{background:linear-gradient(135deg,var(--blue) 0%,var(--orange) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.card-sub{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:36px;}
+.divider{height:1px;background:var(--border);margin-bottom:32px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;}
+.form-group{margin-bottom:18px;}
+.form-group:last-of-type{margin-bottom:24px;}
+.form-label{display:block;font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--text);margin-bottom:8px;text-transform:uppercase;}
+.req{color:var(--orange);}
+.opt{color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;}
+.form-input,.form-select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:12px;color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;padding:13px 16px;outline:none;transition:border-color 0.2s,box-shadow 0.2s;-webkit-appearance:none;appearance:none;}
+.form-input::placeholder{color:var(--muted);}
+.form-input:focus,.form-select:focus{border-color:rgba(79,158,255,0.45);box-shadow:0 0 0 3px rgba(79,158,255,0.08);}
+.form-input.error{border-color:rgba(239,68,68,0.55)!important;}
+.form-select.error{border-color:rgba(239,68,68,0.55)!important;}
+.select-wrap{position:relative;}
+.select-wrap::after{content:'▾';position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:12px;}
+.challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:4px;border-radius:14px;transition:outline 0.2s;}
+.challenge-grid.error{outline:1px solid rgba(239,68,68,0.35);border-radius:14px;padding:8px;}
+.challenge-opt{display:flex;align-items:center;gap:10px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;font-size:13px;color:var(--muted);transition:border-color 0.2s,color 0.2s,background 0.2s;user-select:none;}
+.challenge-opt input[type="radio"]{display:none;}
+.co-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;border:1.5px solid rgba(255,255,255,0.2);transition:background 0.2s,border-color 0.2s,box-shadow 0.2s;}
+.challenge-opt:hover{border-color:rgba(79,158,255,0.3);color:var(--text);}
+.challenge-opt.selected{border-color:rgba(79,158,255,0.45);background:rgba(79,158,255,0.07);color:var(--text);}
+.challenge-opt.selected .co-dot{background:var(--blue);border-color:var(--blue);box-shadow:0 0 6px var(--blue);}
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--blue),#2d6fd4);border:none;border-radius:100px;color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;padding:16px 24px;cursor:pointer;letter-spacing:0.02em;transition:transform 0.2s,box-shadow 0.2s,opacity 0.2s;position:relative;overflow:hidden;margin-bottom:14px;}
+.submit-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);opacity:0;transition:opacity 0.2s;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(79,158,255,0.4);}
+.submit-btn:hover::after{opacity:1;}
+.submit-btn:active{transform:translateY(0);}
+.microcopy{text-align:center;font-size:12px;color:var(--muted);line-height:1.5;}
+.microcopy span{color:rgba(79,158,255,0.7);}
+.success-panel{display:none;text-align:center;padding:20px 0 8px;}
+.success-icon{font-size:48px;margin-bottom:18px;animation:popIn 0.4s cubic-bezier(0.175,0.885,0.32,1.275);}
+@keyframes popIn{from{transform:scale(0.5);opacity:0;}to{transform:scale(1);opacity:1;}}
+.success-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;letter-spacing:-1px;margin-bottom:12px;}
+.success-sub{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;}
+.success-sub em{color:var(--blue);font-style:normal;}
+.card-footer{padding:18px 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--surface2);}
+.footer-logo-card{font-family:'Playfair Display',serif;font-weight:900;font-size:16px;background:linear-gradient(135deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.footer-tagline-card{font-size:11px;color:var(--muted);letter-spacing:0.05em;}
+@media(max-width:540px){.card-inner{padding:32px 24px 36px;}.card-footer{padding:16px 24px;}.form-row{grid-template-columns:1fr;}.challenge-grid{grid-template-columns:1fr;}}
+
 </style>
 
 </head>
@@ -2800,7 +2850,77 @@ img{max-width:100%;height:auto;}
 
     <p class="wl-sub">Now imagine if one of them trains their breath daily. Join the waitlist to be first.</p>
 
-    <!-- WAITLIST FORM PLACEHOLDER -->
+<div class="card">
+  <div class="card-accent"></div>
+  <div class="card-inner">
+    <div class="badge">Early Access</div>
+    <h1 class="card-title">Join the<br><span class="gradient">BRemind Waitlist</span></h1>
+    <p class="card-sub">Be first to access the Breath Intelligence System.<br>We'll notify you personally when your spot opens.</p>
+    <div class="divider"></div>
+    <div id="form-fields">
+      <div class="form-row">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Full Name <span class="req">*</span></label>
+          <input class="form-input" type="text" placeholder="Your name" id="f-name" autocomplete="name">
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Email Address <span class="req">*</span></label>
+          <input class="form-input" type="email" placeholder="you@company.com" id="f-email" autocomplete="email">
+        </div>
+      </div>
+      <div style="height:18px;"></div>
+      <div class="form-group">
+        <label class="form-label">What describes you best? <span class="req">*</span></label>
+        <div class="select-wrap">
+          <select class="form-select" id="f-role">
+            <option value="" disabled selected>Select your role…</option>
+            <option>Founder / Entrepreneur</option>
+            <option>Executive / Leader</option>
+            <option>Student</option>
+            <option>Athlete</option>
+            <option>Creative Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your biggest performance challenge <span class="req">*</span></label>
+        <div class="challenge-grid" id="challenge-grid">
+          <label class="challenge-opt" onclick="selectChallenge(this)"><input type="radio" name="challenge" value="Focus"><span class="co-dot"></span> Maintaining focus & clarity</label>
+          <label class="challenge-opt" onclick="selectChallenge(this)"><input type="radio" name="challenge" value="Stress"><span class="co-dot"></span> Stress under pressure</label>
+          <label class="challenge-opt" onclick="selectChallenge(this)"><input type="radio" name="challenge" value="Emotions"><span class="co-dot"></span> Emotional reactions</label>
+          <label class="challenge-opt" onclick="selectChallenge(this)"><input type="radio" name="challenge" value="Decisions"><span class="co-dot"></span> Decision-making quality</label>
+          <label class="challenge-opt" onclick="selectChallenge(this)"><input type="radio" name="challenge" value="Energy"><span class="co-dot"></span> Energy management</label>
+          <label class="challenge-opt" onclick="selectChallenge(this)"><input type="radio" name="challenge" value="Other"><span class="co-dot"></span> Something else</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">How did you hear about BRemind? <span class="opt">(optional)</span></label>
+        <div class="select-wrap">
+          <select class="form-select" id="f-source">
+            <option value="" disabled selected>Select source…</option>
+            <option>Social media</option>
+            <option>Friend or colleague</option>
+            <option>Search / article</option>
+            <option>Event or talk</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="handleSubmit()">Secure My Early Access →</button>
+      <p class="microcopy">No spam. No credit card. <span>We'll notify you when your spot opens.</span></p>
+    </div>
+    <div class="success-panel" id="form-success">
+      <div class="success-icon">⚡</div>
+      <div class="success-title">You're in.</div>
+      <p class="success-sub">We'll reach out before launch with your personalised onboarding.<br><br><em>Operate with clarity. Perform with precision.</em></p>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-logo-card">BRemind</div>
+    <div class="footer-tagline-card">The Breath Intelligence System</div>
+  </div>
+</div>
 
   </div>
 
@@ -3068,45 +3188,7 @@ function selectChallenge(el){
 
 }
 
-// ── WAITLIST FORM ──
-
-function handleSubmit(){
-
-  const name=document.getElementById('f-name').value.trim();
-
-  const email=document.getElementById('f-email').value.trim();
-
-  const role=document.getElementById('f-role').value;
-
-  const challenge=document.querySelector('.challenge-opt.selected');
-
-  if(!name||!email||!role||!challenge){
-
-    if(!name) document.getElementById('f-name').style.borderColor='rgba(239,68,68,0.55)';
-
-    if(!email) document.getElementById('f-email').style.borderColor='rgba(239,68,68,0.55)';
-
-    if(!role) document.getElementById('f-role').style.borderColor='rgba(239,68,68,0.55)';
-
-    if(!challenge){
-
-      document.getElementById('challenge-grid').style.outline='1px solid rgba(239,68,68,0.35)';
-
-      document.getElementById('challenge-grid').style.borderRadius='12px';
-
-      document.getElementById('challenge-grid').style.padding='8px';
-
-    }
-
-    return;
-
-  }
-
-  document.getElementById('form-fields').style.display='none';
-
-  document.getElementById('form-success').style.display='block';
-
-}
+// ── WAITLIST FORM ── (handled below with Google Form submission)
 
 // ── BLOG FILTER ──
 
@@ -3244,6 +3326,37 @@ function sendMessage(){
 
 }
 
+function handleSubmit(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const role=document.getElementById('f-role').value;
+  const challenge=document.querySelector('.challenge-opt.selected');
+  ['f-name','f-email','f-role'].forEach(id=>document.getElementById(id).classList.remove('error'));
+  document.getElementById('challenge-grid').classList.remove('error');
+  let valid=true;
+  if(!name){document.getElementById('f-name').classList.add('error');valid=false;}
+  if(!email||!email.includes('@')){document.getElementById('f-email').classList.add('error');valid=false;}
+  if(!role){document.getElementById('f-role').classList.add('error');valid=false;}
+  if(!challenge){document.getElementById('challenge-grid').classList.add('error');valid=false;}
+  if(!valid)return;
+  const formUrl="https://docs.google.com/forms/d/e/1FAIpQLSc556Ro4-x0RLhaTiq9F8ayZXt0MOiBwJNFQJ9l3yGlbyfAnw/formResponse";
+  const params=new URLSearchParams({
+    "entry.255412026":name,
+    "entry.1112031837":email,
+    "entry.139102300":role,
+    "entry.2098558216":challenge.querySelector('input').value,
+    "entry.744924287":document.getElementById('f-source').value||"",
+  });
+  fetch(formUrl+"?"+params.toString(),{method:"POST",mode:"no-cors"});
+  document.getElementById('form-fields').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var fn=document.getElementById('f-name');
+  var fe=document.getElementById('f-email');
+  if(fn)fn.addEventListener('input',function(){this.classList.remove('error');});
+  if(fe)fe.addEventListener('input',function(){this.classList.remove('error');});
+});
 </script>
 
 <style>
